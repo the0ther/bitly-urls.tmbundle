@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>deleted</key>
+	<array>
+		<string>9B72796D-191B-43E3-AC82-2C0FC0EC6808</string>
+	</array>
+	<key>name</key>
+	<string>Bitly URLs</string>
+	<key>ordering</key>
+	<array>
+		<string>C6A5FCA2-A901-4C04-BAE1-698887820BDA</string>
+		<string>2837FDF7-2033-4BFD-8941-E9A5135515B1</string>
+		<string>C77452C5-C65F-47E9-B24D-403E26230B1B</string>
+		<string>F06A4160-7FEC-4830-B72B-3EAFE7593852</string>
+		<string>2072562A-4D73-4C06-A4BC-C2FE89E52DF2</string>
+		<string>832CBE42-AB4C-4FA1-8D37-BDB0CAB93437</string>
+	</array>
+	<key>uuid</key>
+	<string>EE7AE6B1-1BD0-4919-BECB-138FB2A87BB4</string>
+</dict>
+</plist>

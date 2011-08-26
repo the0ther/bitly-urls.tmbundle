@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>bundleUUID</key>
+	<string>FC10FBD2-B1B0-432F-968C-B56AE27667B5</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+
+url = ENV['TM_SELECTED_TEXT']
+login = ENV['TM_BITLY_LOGIN'] || 'winterl'
+api_key = ENV['TM_BITLY_API'] || 'R_1e524a58720cb7b09e9f208c94ccb44b'
+
+clicks = `curl -s "http://api.bitly.com/v3/clicks?shortUrl=#{url}&amp;login=#{login}&amp;apiKey=#{api_key}&amp;format=json"`
+clicks_by_minute = `curl -s "http://api.bitly.com/v3/clicks_by_minute?shortUrl=#{url}&amp;login=#{login}&amp;apiKey=#{api_key}&amp;format=json"`
+clicks_by_day = `curl -s "http://api.bitly.com/v3/clicks_by_day?shortUrl=#{url}&amp;login=#{login}&amp;apiKey=#{api_key}&amp;format=json"`
+
+print "&lt;h3&gt;Clicks&lt;/h3&gt;" + clicks
+
+print "&lt;h3&gt;Clicks by minute&lt;/h3&gt;" + clicks_by_minute
+
+print "&lt;h3&gt;Clicks by day&lt;/h3&gt;" + clicks_by_day.gsub("},", "},&lt;br/&gt;").gsub("[{", "[&lt;br/&gt;{")
+</string>
+	<key>fallbackInput</key>
+	<string>line</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>^*</string>
+	<key>name</key>
+	<string>Statistics</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>uuid</key>
+	<string>2072562A-4D73-4C06-A4BC-C2FE89E52DF2</string>
+</dict>
+</plist>

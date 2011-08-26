@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>commands</key>
+	<array>
+		<dict>
+			<key>argument</key>
+			<dict>
+				<key>beforeRunningCommand</key>
+				<string>nop</string>
+				<key>bundleUUID</key>
+				<string>FC10FBD2-B1B0-432F-968C-B56AE27667B5</string>
+				<key>command</key>
+				<string>#!/usr/bin/env ruby
+
+url = ENV['TM_SELECTED_TEXT']
+login = ENV['TM_BITLY_LOGIN'] || 'tmbitly'
+api_key = ENV['TM_BITLY_API'] || 'R_1e524a58720cb7b09e9f208c94ccb44b'
+
+print `curl -s "http://api.bitly.com/v3/expand?shortUrl=#{url}&amp;login=#{login}&amp;apiKey=#{api_key}&amp;format=txt"`</string>
+				<key>fallbackInput</key>
+				<string>line</string>
+				<key>input</key>
+				<string>selection</string>
+				<key>name</key>
+				<string>Expand</string>
+				<key>output</key>
+				<string>replaceSelectedText</string>
+				<key>uuid</key>
+				<string>C77452C5-C65F-47E9-B24D-403E26230B1B</string>
+			</dict>
+			<key>command</key>
+			<string>executeCommandWithOptions:</string>
+		</dict>
+		<dict>
+			<key>command</key>
+			<string>moveRight:</string>
+		</dict>
+		<dict>
+			<key>command</key>
+			<string>deleteBackward:</string>
+		</dict>
+	</array>
+	<key>keyEquivalent</key>
+	<string>^(</string>
+	<key>name</key>
+	<string>Expand Url</string>
+	<key>uuid</key>
+	<string>F06A4160-7FEC-4830-B72B-3EAFE7593852</string>
+</dict>
+</plist>
