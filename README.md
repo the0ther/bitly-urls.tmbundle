@@ -19,17 +19,15 @@ in `TextMate > Preference > Advanced > Shell Variables`
 
 COMMANDS
 --------
-* To shorten a URL -- `shift ctrl 0`
+* `shift ctrl 0` -- To shorten a URL
 
-* To expand a URL -- `shift ctrl 9`
+* `shift ctrl 9` -- To expand a URL
 
-* To view click statistics (countries) -- `shift ctrl 7`
+* `shift ctrl 7` -- To view click statistics (by countries)
 
-* To view click statistics (referrers) -- `shift ctrl 6`
+* `shift ctrl 6` -- To view click statistics (by referrers)
 
-### Working but not formatted
+### Working but not quite readable
 
-* To view click statistics -- `shift ctrl 8`
-
-unformated json returns clicks, clicks per minute, and clicks per day
+* `shift ctrl 8` -- To view click statistics (by minute, per day) -- unformated json
 
