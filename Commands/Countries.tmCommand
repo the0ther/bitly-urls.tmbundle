@@ -13,12 +13,12 @@ url = ENV['TM_SELECTED_TEXT']
 login = ENV['TM_BITLY_LOGIN'] || 'tmbitly'
 api_key = ENV['TM_BITLY_API'] || 'R_1e524a58720cb7b09e9f208c94ccb44b'
 
-referrers = `curl -s "http://api.bitly.com/v3/referrers?shortUrl=#{url}&amp;login=#{login}&amp;apiKey=#{api_key}&amp;format=json"`
+countries = `curl -s "http://api.bitly.com/v3/countries?shortUrl=#{url}&amp;login=#{login}&amp;apiKey=#{api_key}&amp;format=json"`
 
-if (referrers.match(/"referrers": \[\]\},/))
-	referrers = "&lt;h4&gt;no click data (yet?)&lt;/h4&gt;"
+if (countries.match(/"countries": \[\]\},/))
+	countries = "&lt;h4&gt;no click data (yet?)&lt;/h4&gt;"
 else
-	referrers.gsub!(/(\{"\w+": \w+, "\w+": \{"\w+": ")/, "&lt;h4&gt;").gsub!(/(", "\w+": "\w+", "\w+": "\w+", "referrers": \[)/, "&lt;/h3&gt;&lt;i&gt;Referrers - Clicks&lt;/i&gt;&lt;ul&gt;").gsub!(/"\w+": "\w+"\}/, "&lt;/ul&gt;").gsub!(/\}\]/, "").gsub!(/([{]"referrer": ")/, "&lt;li&gt;").gsub!(/(", "clicks": )/, " - ").gsub!(/\},/, "&lt;/li&gt;")
+	countries.gsub!(/(\{"\w+": \w+, "\w+": \{"\w+": ")/, "&lt;h4&gt;").gsub!(/(", "\w+": "\w+", "\w+": "\w+", "countries": \[)/, "&lt;/h3&gt;&lt;i&gt;Countries - Clicks&lt;/i&gt;&lt;ul&gt;").gsub!(/"\w+": "\w+"\}/, "&lt;/ul&gt;").gsub!(/\}\]/, "").gsub!(/([{]"country": ")/, "&lt;li&gt;").gsub!(/(", "clicks": )/, " - ").gsub!(/\},/, "&lt;/li&gt;")
 end
 
 print &lt;&lt;HTML
@@ -31,7 +31,7 @@ print &lt;&lt;HTML
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div&gt;
-	#{referrers}
+	#{countries}
   &lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;
@@ -41,12 +41,12 @@ HTML</string>
 	<key>input</key>
 	<string>selection</string>
 	<key>keyEquivalent</key>
-	<string>^^</string>
+	<string>^&amp;</string>
 	<key>name</key>
-	<string>Referrers</string>
+	<string>Countries</string>
 	<key>output</key>
 	<string>showAsHTML</string>
 	<key>uuid</key>
-	<string>6C1FD642-D678-48FE-AA18-4BBD90E96C42</string>
+	<string>832CBE42-AB4C-4FA1-8D37-BDB0CAB93437</string>
 </dict>
 </plist>
