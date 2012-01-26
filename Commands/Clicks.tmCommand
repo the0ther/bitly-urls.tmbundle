@@ -10,18 +10,30 @@
 	<string>#!/usr/bin/env ruby
 
 url = ENV['TM_SELECTED_TEXT']
-login = ENV['TM_BITLY_LOGIN'] || 'winterl'
+login = ENV['TM_BITLY_LOGIN'] || 'tmbitly'
 api_key = ENV['TM_BITLY_API'] || 'R_1e524a58720cb7b09e9f208c94ccb44b'
 
 clicks = `curl -s "http://api.bitly.com/v3/clicks?shortUrl=#{url}&amp;login=#{login}&amp;apiKey=#{api_key}&amp;format=json"`
 clicks_by_minute = `curl -s "http://api.bitly.com/v3/clicks_by_minute?shortUrl=#{url}&amp;login=#{login}&amp;apiKey=#{api_key}&amp;format=json"`
 clicks_by_day = `curl -s "http://api.bitly.com/v3/clicks_by_day?shortUrl=#{url}&amp;login=#{login}&amp;apiKey=#{api_key}&amp;format=json"`
 
-print "&lt;h3&gt;Clicks&lt;/h3&gt;" + clicks
+clicks_by_day.gsub("},", "},&lt;br/&gt;").gsub("[{", "[&lt;br/&gt;{")
 
-print "&lt;h3&gt;Clicks by minute&lt;/h3&gt;" + clicks_by_minute
-
-print "&lt;h3&gt;Clicks by day&lt;/h3&gt;" + clicks_by_day.gsub("},", "},&lt;br/&gt;").gsub("[{", "[&lt;br/&gt;{")
+print &lt;&lt;HTML
+&lt;!doctype&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;style type="text/css"&gt;
+		div { color: #333 font: lucida grande; border: 1px solid #ccc; background: #efefef; padding: 0 10px 15px 10px; margin-bottom: 10px }
+	&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  	&lt;div&gt;&lt;h4&gt;Clicks&lt;/h4&gt;#{clicks}&lt;/div&gt;
+	&lt;div&gt;&lt;h4&gt;Clicks by minute&lt;/h4&gt;#{clicks_by_minute}&lt;/div&gt;
+	&lt;div&gt;&lt;h4&gt;Clicks by day&lt;/h4&gt;#{clicks_by_day}&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+HTML
 </string>
 	<key>fallbackInput</key>
 	<string>line</string>
