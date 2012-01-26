@@ -23,12 +23,13 @@ COMMANDS
 
 * To expand a URL -- `shift ctrl 9`
 
-### Partially working
+* To view click statistics (countries) -- `shift ctrl 7`
 
-* To view statistics -- `shift ctrl 8`
+* To view click statistics (referrers) -- `shift ctrl 6`
 
-Clicks, clicks per minute, and clicks per day
+### Working but not formatted
 
-* To view referrers -- `shift ctrl 7`
+* To view click statistics -- `shift ctrl 8`
 
-Referrers, countries
+unformated json returns clicks, clicks per minute, and clicks per day
+
